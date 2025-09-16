@@ -110,19 +110,21 @@ chrome.webRequest.onBeforeRequest.addListener(
   { urls: ["<all_urls>"] }
 );
 
-// Message channel: hold.js asks for target and settings, and to proceed
+// hold.js asks for target and settings, and to proceed
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.type === "GET_CONTEXT") {
     const tabId = sender.tab?.id;
-    chrome.storage.local.get(DEFAULT_SETTINGS, data => {
+    chrome.storage.local.get(["delayEnabled", "delaySeconds", "blockedDomains"], data => {
       sendResponse({
         targetUrl: tabId != null ? lastTargetByTab.get(tabId) : null,
+        delayEnabled: data.delayEnabled,
         delaySeconds: data.delaySeconds,
         blockedDomains: data.blockedDomains
       });
     });
-    return true; // async response
+    return true; 
   }
+
 
   if (msg.type === "PROCEED_TO_TARGET") {
     const { targetUrl } = msg;

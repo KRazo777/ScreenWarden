@@ -4,7 +4,6 @@ const btnContinue = document.getElementById("continue");
 const btnCancel = document.getElementById("cancel");
 
 let targetUrl = null;
-let delay = 10;
 
 function truncateUrl(u) {
   try {
@@ -15,23 +14,35 @@ function truncateUrl(u) {
   }
 }
 
-chrome.runtime.sendMessage({ type: "GET_CONTEXT" }, ({ targetUrl: t, delaySeconds }) => {
-  targetUrl = t || null;
-  delay = (typeof delaySeconds === "number" ? delaySeconds : 10);
+chrome.runtime.sendMessage({ type: "GET_CONTEXT" }, (ctx) => {
+  targetUrl = ctx.targetUrl;
+  const { delayEnabled, delaySeconds } = ctx;
 
-  targetEl.textContent = targetUrl ? truncateUrl(targetUrl) : "(no target)";
+  if (targetUrl) {
+    targetEl.textContent = truncateUrl(targetUrl);
+    targetEl.style.display = "";
+  } else {
+    targetEl.textContent = "";
+    targetEl.style.display = "none";
+  }
 
-  let remaining = delay;
-  countdownEl.textContent = `${remaining}s`;
-  const timer = setInterval(() => {
-    remaining -= 1;
+  if (delayEnabled && delaySeconds > 0) {
+    let remaining = delaySeconds;
     countdownEl.textContent = `${remaining}s`;
-    if (remaining <= 0) {
-      clearInterval(timer);
-      btnContinue.disabled = false;
-      btnContinue.focus();
-    }
-  }, 1000);
+    const timer = setInterval(() => {
+      remaining -= 1;
+      countdownEl.textContent = `${remaining}s`;
+      if (remaining <= 0) {
+        clearInterval(timer);
+        countdownEl.textContent = "";
+        btnContinue.disabled = false;
+        btnContinue.focus();
+      }
+    }, 1000);
+  } else {
+    countdownEl.textContent = "";
+    btnContinue.disabled = false;
+  }
 });
 
 btnContinue.addEventListener("click", () => {

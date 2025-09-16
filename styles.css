@@ -71,3 +71,58 @@ button:hover {
   opacity: .5; 
   cursor: not-allowed; 
 }
+
+.settings-section {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #1e293b;
+}
+
+.settings-section h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.settings-section .desc {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin: 4px 0 12px;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.input-label {
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+}
+
+textarea, input[type="number"] {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #0b1220;
+  color: #e2e8f0;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+button {
+  background: #2563eb;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+

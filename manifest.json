@@ -16,11 +16,7 @@
     "webRequest"
   ],
   "host_permissions": [
-    "*://*.twitter.com/*",
-    "*://*.x.com/*",
-    "*://*.reddit.com/*",
-    "*://*.youtube.com/*",
-    "*://*.tiktok.com/*"
+    "<all_urls>"
   ],
   "background": {
     "service_worker": "background.js"
