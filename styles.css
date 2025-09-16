@@ -1,0 +1,73 @@
+body { 
+  font-family: system-ui, sans-serif; 
+  margin: 0; 
+  background: #0f172a; 
+  color: #e2e8f0; 
+}
+
+/* Centering */
+.hold, .options { 
+  display: grid; 
+  place-items: center; 
+  min-height: 100vh; 
+  padding: 24px; 
+}
+
+/* Bigger card */
+.card { 
+  width: 90%; 
+  max-width: 900px;          /* increased from 560px */
+  background: #111827; 
+  border-radius: 24px;       /* more rounded */
+  padding: 40px;             /* more padding */
+  box-shadow: 0 15px 40px rgba(0,0,0,.5);
+}
+
+/* Headline */
+h1 { 
+  margin: 0 0 20px; 
+  font-size: 2.5rem;         /* ~40px */
+  font-weight: 700; 
+}
+
+/* Target URL text */
+.url { 
+  word-break: break-all; 
+  opacity: .85; 
+  margin-bottom: 24px; 
+  font-size: 1.2rem; 
+}
+
+/* Countdown */
+.cd { 
+  font-size: 3.5rem;         /* larger countdown */
+  font-weight: 800; 
+  letter-spacing: 2px; 
+  margin: 16px 0 32px; 
+  color: #fcfcfc;            /* cyan highlight */
+}
+
+/* Buttons */
+.actions { 
+  display: flex; 
+  gap: 16px; 
+}
+
+button { 
+  border: 0; 
+  padding: 14px 24px; 
+  border-radius: 12px; 
+  cursor: pointer; 
+  font-size: 1.1rem;         /* larger button text */
+  font-weight: 600;
+  transition: background .2s, transform .1s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+#continue[disabled] { 
+  opacity: .5; 
+  cursor: not-allowed; 
+}

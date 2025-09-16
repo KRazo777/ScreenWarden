@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "ScreenWatcher for Browser",
+  "version": "0.1.0",
+  "description": "Think before opening distracting sites.",
+  "web_accessible_resources": [
+  {
+    "resources": ["hold.html", "hold.js", "styles.css"],
+    "matches": ["<all_urls>"]
+  }
+  ],
+  "permissions": [
+    "declarativeNetRequest",
+    "storage",
+    "tabs",
+    "webRequest"
+  ],
+  "host_permissions": [
+    "*://*.twitter.com/*",
+    "*://*.x.com/*",
+    "*://*.reddit.com/*",
+    "*://*.youtube.com/*",
+    "*://*.tiktok.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "ScreenWatcher"
+  },
+  "options_page": "options.html",
+  "icons": {}
+}
