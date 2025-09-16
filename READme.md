@@ -20,7 +20,8 @@
 1. On this GitHub page, click the green **Code** button → **Download ZIP**.  
 2. Extract the ZIP file into a folder (e.g. `C:\Downloads\ScreenWarden`).  
 3. Open Chrome (or Edge) and go to the top right:  
-4. Extensions -> Manage Extensions
+4. Extensions -> Manage Extensions -> Toggle Developer Mode **ON**
 5. Click **Load unpacked** and select the extracted folder.  
 6. Done! Visit a blocked site (like `twitter.com`) to see the hold screen.
+
 
